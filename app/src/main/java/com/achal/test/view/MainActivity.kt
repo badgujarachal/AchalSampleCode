@@ -4,6 +4,9 @@ package com.achal.test.view
 
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 
@@ -16,6 +19,8 @@ import com.achal.test.adapter.CanadaArticleAdapter
 import com.achal.test.model.Canada
 import com.achal.test.view_model.CanadaArticleViewModel
 import java.util.*
+
+
 
 
 
@@ -35,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(com.achal.test.R.layout.activity_main)
 
         if (savedInstanceState == null) {
                         supportFragmentManager
@@ -46,6 +51,28 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+//    override fun onCreateOptionsMenu(
+//            menu: Menu, inflater: MenuInflater) {
+//       // setHasOptionsMenu(true)
+//        inflater.inflate(com.achal.test.R.menu.main, menu)
+//    }
+
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        //this.optionsMenu = menu;
+//        //MenuInflater inflater = getMenuInflater(); //ERROR<-----------
+//        menuInflater.inflate(com.achal.test.R.menu.main, menu)
+//        //return super.onCreateOptionsMenu(menu); // in Fragment cannot be applied <------------
+//        return true
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+//
+//      //  getMovieArticles()
+//        return super.onOptionsItemSelected(item)
+//    }
+
+
 
 
     }

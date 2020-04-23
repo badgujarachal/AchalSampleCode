@@ -2,9 +2,6 @@ package com.achal.test.view
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -15,6 +12,9 @@ import com.achal.test.adapter.CanadaArticleAdapter
 import com.achal.test.model.Canada
 import com.achal.test.view_model.CanadaArticleViewModel
 import java.util.ArrayList
+
+import android.view.*
+
 
 class ArticlesFragment : Fragment() {
     private var my_recycler_view: RecyclerView? = null
@@ -32,12 +32,33 @@ class ArticlesFragment : Fragment() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = return inflater.inflate(R.layout.fragment_main, null, false)
 
+    }
+
+    override fun onCreateOptionsMenu(
+            menu: Menu, inflater: MenuInflater) {
+
+        inflater.inflate(com.achal.test.R.menu.main, menu)
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    //This is a redundant code .As we are using livedata no explicit refresh required
+
+    //Just for demo
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        getMovieArticles()
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -48,8 +69,8 @@ class ArticlesFragment : Fragment() {
 
 
     private fun initialization() {
-        progress_circular_movie_article = view?.findViewById<View>(R.id.progress_circular_movie_article) as ProgressBar
-        my_recycler_view = view?.findViewById<View>(R.id.my_recycler_view) as RecyclerView
+        progress_circular_movie_article = view?.findViewById<View>(com.achal.test.R.id.progress_circular_movie_article) as ProgressBar
+        my_recycler_view = view?.findViewById<View>(com.achal.test.R.id.my_recycler_view) as RecyclerView
 
         // use a linear layout manager
         val activity = activity as Context
