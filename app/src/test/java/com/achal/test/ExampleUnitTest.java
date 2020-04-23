@@ -41,7 +41,7 @@ public class ExampleUnitTest {
         //  viewModel = Mockito.spy();
     }
 
-
+   //This test is to check whether we get success response
     @SuppressWarnings("unchecked")
     @Test
     public void handleResponse_Success() {
@@ -52,7 +52,7 @@ public class ExampleUnitTest {
 
     }
 
-
+//This is to check  that we are not getting failed response
     @Test
     public void handleResponse_Failure() {
         Response response = Mockito.mock(Response.class);
@@ -60,6 +60,7 @@ public class ExampleUnitTest {
 
     }
 
+   //This test is to see that correct base url ois used
     @Test
     public void test_badseurl() {
 
